@@ -1,0 +1,26 @@
+version: "3"
+services:
+  pg:
+    image: "postgres"
+    env_file:
+      - database.env # configure postgres
+    container_name: "postgres"
+    environment:
+      POSTGRES_USER: hurjgklhdpjilo
+      POSTGRES_PASSWORD: c79f389ef6ea546dd7a027877f89f8bb4d64033ea906f871d028c5bfc00fb5d1
+    ports:
+      - "5432:5432"
+    volumes:
+      - cybotrade-db:/var/lib/postgresql/data
+  customer:
+    container_name: "customer"
+    build: ./customer/
+    environment:
+      DB_SCHEMA: customer
+      DB_USER: hurjgklhdpjilo
+      DB_PASSWORD: c79f389ef6ea546dd7a027877f89f8bb4d64033ea906f871d028c5bfc00fb5d1
+      DB_HOST: host.docker.internal
+    ports:
+      - "3001:3001"
+volumes:
+  cybotrade-db:
