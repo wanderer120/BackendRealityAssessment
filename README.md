@@ -32,6 +32,7 @@ fe <-> gateway <-> customer<->db<br/>
                <-> product<->db<br/>
                <-> order<->db<br/>
                <-> payment<->db<br/>
+Basically all the services are behind api gateway
 <br/>
 ToDo:<br/>
 1. frontend validation<br/>
